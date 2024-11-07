@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="google-adsense-account" content="ca-pub-1469402952253997">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+        
+    <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+     <title>Educated Nepal</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Logo" class="nav-logo-img" width="80px">
+                    Educated Nepal
+                </a>
+            </span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo">
+                        <a href="index.html">
+                            <img src="logo.png" alt="Logo" class="nav-logo-img" width="80px">
+                            Educated Nepal
+                        </a>
+                    </span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="notes.html">Notes</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li class="dropdown">
+                        <a href="class10resources.html" class="dropbtn">Class 10 <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="class10english.html"><i class='bx bx-message-alt-detail'></i> English</a>
+                            <a href="class10nepali.html"><i class='bx bx-book'></i> Nepali</a>
+                            <a href="class10science.html"><i class='bx bx-book-open'></i> Science</a>
+                            <a href="class10math.html"><i class='bx bx-calculator'></i> Math</a>
+                            
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="class11resources.html" class="dropbtn">Class 11 <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="class11english.html"><i class='bx bx-message-alt-detail'></i> English</a>
+                            <a href="class11nepali.html"><i class='bx bx-book'></i> Nepali</a>
+                            <a href="class11physics.html"><i class='bx bx-atom'></i> Physics</a>
+                            <a href="class11chemistry.html"><i class='bx bx-test-tube'></i> Chemistry</a>
+                            <a href="class11biology.html"><i class='bx bx-dna'></i> Biology</a>
+                            <a href="class11math.html"><i class='bx bx-calculator'></i> Math</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="class12resources.html" class="dropbtn">Class 12 <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="class12english.html"><i class='bx bx-message-alt-detail'></i> English</a>
+                            <a href="class12nepali.html"><i class='bx bx-book'></i> Nepali</a>
+                            <a href="class12physics.html"><i class='bx bx-atom'></i> Physics</a>
+                            <a href="class12chemistry.html"><i class='bx bx-test-tube'></i> Chemistry</a>
+                            <a href="class12biology.html"><i class='bx bx-dna'></i> Biology</a>
+                            <a href="class12math.html"><i class='bx bx-calculator'></i> Math</a>
+                            <a href="class12computer.html"><i class='bx bx-laptop'></i> Computer Science</a>
+                        </div>
+                    </li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<script>
+
+const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+
+// js code to toggle search box
+        searchToggle.addEventListener("click" , () =>{
+        searchToggle.classList.toggle("active");
+      });
+ 
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+</script>
+
+</body>
+</html>
+<style>
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;
+}
+
+
+/* ===== Colours ===== */
+:root{
+    --body-color: #E4E9F7;
+    --nav-color: white;
+    --side-nav: #010718;
+    --text-color: black;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+    --hover-color: #e5e5e5;
+    --dropdown-hover: rgba(255, 255, 255, 0.15);
+}
+
+body{
+    height: 100vh;
+    background-color: var(--body-color);
+}
+
+body.dark{
+    --body-color: #bbcee1;
+    --nav-color: white;
+    --side-nav: #242526;
+    --text-color: black;
+    --search-bar: #242526;
+    --hover-color: #e0e7ee;
+    --dropdown-hover: rgba(255, 255, 255, 0.1);
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    background-color: var(--nav-color);
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark nav{
+    border: 1px solid #393838;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav .nav-bar{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: var(--nav-color);
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .nav-bar .sidebarOpen{
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+    transition: transform 0.3s ease;
+}
+
+nav .nav-bar .sidebarOpen:hover {
+    transform: scale(1.1);
+}
+
+nav .nav-bar .logo a{
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+nav .nav-bar .logo a:hover {
+    transform: scale(1.05);
+}
+
+.nav-logo-img {
+    height: 80px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo-img:hover {
+    transform: rotate(2deg);
+}
+
+.menu .logo-toggle{
+    display: none;
+}
+
+.nav-bar .nav-links{
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar .nav-links li{
+    margin: 0 5px;
+    list-style: none;
+}
+
+.nav-links li a{
+    position: relative;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--nav-color);
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a i {
+    margin-right: 10px;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--dropdown-hover);
+    padding-left: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.dropbtn i {
+    font-size: 16px;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn i {
+    transform: rotate(180deg);
+}
+
+.nav-links li a::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-links li:hover a::before{
+    opacity: 1;
+    transform: translateX(-50%) scale(1.2);
+}
+
+.nav-bar .darkLight-searchBox{
+    display: flex;
+    align-items: center;
+}
+
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.darkLight-searchBox .dark-light:hover,
+.darkLight-searchBox .searchToggle:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.1);
+}
+
+.dark-light i,
+.searchToggle i{
+    position: absolute;
+    color: var(--text-color);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dark-light i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dark-light.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dark-light.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle i.cancel{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle.active i.cancel{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.searchToggle.active i.search{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchBox{
+    position: relative;
+}
+
+.searchBox .search-field{
+    position: absolute;
+    bottom: -85px;
+    right: 5px;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: var(--nav-color);
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.searchToggle.active ~ .search-field{
+    bottom: -74px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.search-field::before{
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: -4px;
+    height: 12px;
+    width: 12px;
+    background-color: var(--nav-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.search-field input{
+    height: 100%;
+    width: 100%;
+    padding: 0 45px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--search-text);
+    background-color: var(--search-bar);
+    transition: all 0.3s ease;
+}
+
+.search-field input:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .search-field input{
+    color: var(--text-color);
+}
+
+.search-field i{
+    position: absolute;
+    color: var(--nav-color);
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-field i:hover {
+    transform: scale(1.1);
+}
+
+body.dark .search-field i{
+    color: var(--text-color);
+}
+
+@media (max-width: 900px) {
+    nav .nav-bar .sidebarOpen{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        left: -100%;
+        top: 0;
+        padding: 20px;
+        background-color: var(--side-nav);
+        z-index: 100;
+        transition: all 0.4s ease;
+        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active .menu{
+        left: -0%;
+    }
+
+    nav.active .nav-bar .navLogo a{
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu .logo-toggle{
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-toggle .siderbarClose{
+        color: var(--text-color);
+        font-size: 24px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .logo-toggle .siderbarClose:hover {
+        transform: rotate(90deg);
+    }
+
+    .nav-bar .nav-links{
+        flex-direction: column;
+        padding-top: 30px;
+    }
+
+    .nav-links li a{
+        display: block;
+        margin-top: 20px;
+    }
+
+    /* Mobile dropdown styles */
+    .dropdown-content {
+        position: static;
+        display: none;
+        background-color: var(--dropdown-hover);
+        box-shadow: none;
+        padding-left: 20px;
+        transform: translateX(-10px);
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        transform: translateX(0);
+    }
+}
+</style>
+<meta name="theme-color" content="#2980b9">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+<style>
+  .motivational-quotes {
+    perspective: 1000px;
+    transition: all 0.5s ease;
+  }
+  .quote-transition {
+    animation: fadeInRotate 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  @keyframes fadeInRotate {
+    from {
+      opacity: 0;
+      transform: rotateX(-20deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
+  :root {
+    --primary-color: #2980b9;
+    --secondary-color: #27ae60;
+    --accent-color: #8e44ad;
+    --soft-background: #f4f6f7;
+    --text-color: #2c3e50;
+    --shadow-color: rgba(44, 62, 80, 0.15);
+    --nav-bg: #ffffff;
+    --nav-text: #2c3e50;
+    --nav-hover: #3498db;
+    --nav-border: #e1e4e8;
+    --nav-shadow: rgba(0, 0, 0, 0.1);
+  }
+  body {
+    background: linear-gradient(-45deg, #f3f4f6, #e9ecef, #dee2e6);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+    transition: all 0.3s smooth;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    color: #2c3e50;
+    line-height: 1.7;
+    letter-spacing: -0.02em;
+  }
+  section {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+  section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    right: -50px;
+    height: 100px;
+    background: linear-gradient(transparent, rgba(74, 144, 226, 0.05));
+    transform: skewY(-3deg);
+    z-index: -1;
+  }
+  .hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(74, 144, 226, 0.1);
+    transform: skewY(-6deg);
+    transform-origin: top left;
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .feature-card, .advanced-feature-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px var(--shadow-color);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-top: 4px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+  .feature-card::before, .advanced-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  .feature-card:hover::before, .advanced-feature-card:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .feature-icon {
+    font-size: 54px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+  .feature-card:hover .feature-icon {
+    transform: rotate(15deg);
+  }
+  .subjects-grid {
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  .subject-bubble {
+    background-color: var(--soft-background);
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    perspective: 1000px;
+  }
+  .subject-bubble:hover {
+    transform: rotateX(10deg) translateZ(50px);
+    box-shadow: 0 20px 40px var(--shadow-color);
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  .animated-stats {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    color: white;
+    padding: 60px 0;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .floating-element {
+    animation: float 4s ease-in-out infinite;
+  }
+  .daily-quote-section {
+    background-color: var(--soft-background);
+    padding: 60px 0;
+    text-align: center;
+  }
+  .quote-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  .advanced-features {
+    background-color: white;
+    padding: 60px 0;
+  }
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+    .hero-section {
+      padding: 60px 15px;
+    }
+    .feature-card, .advanced-feature-card {
+      margin-bottom: 15px;
+      padding: 20px;
+    }
+    .subject-bubble {
+      width: 120px;
+      height: 120px;
+    }
+  
+  .nav-links > li > a:hover::after {
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+  }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero-section">
+    <div class="container hero-content">
+      <h1 class="display-4 floating-element">Transform Your Learning Experience</h1>
+      <p class="lead mb-4">Innovative, Interactive, and Inspiring Educational Resources for Nepal's Future Scholars</p>
+      <div>
+        <a href="https://educatednepal.com/subjects" class="btn btn-light btn-lg mr-3 shadow-sm">Explore Courses</a>
+        <a href="https://educatednepal.com/quizzes" class="btn btn-outline-light btn-lg shadow-sm">Start Learning</a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <title>Educated Nepal - Class 10 Chemistry</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+    }
+    .navbar {
+        background-color: #;
+    }
+    .navbar-brand, .nav-link {
+        color: #ffffff !important;
+    }
+    .chapter-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .chapter-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .chapter-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    .btn-chapter {
+        background-color: #4caf50;
+        color: #ffffff;
+        border: none;
+        transition: background-color 0.3s;
+    }
+    .btn-chapter:hover {
+        background-color: #45a049;
+        color: #ffffff;
+    }
+    .resource-icon {
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
+    #moleculeCanvas {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+</style>
+</head>
+<body>
+
+<header class="bg-light py-5">
+    <div class="container text-center">
+        <h1 class="display-4">Class 10 Chemistry</h1>
+        <p class="lead">Explore the fascinating world of atoms, molecules, and chemical reactions.</p>
+    </div>
+</header>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="mb-4">Chemistry Chapters</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card chapter-card h-100">
+                            <div class="card-body text-center">
+                                <div class="chapter-icon text-primary"><i class="fas fa-atom"></i></div>
+                                <h3 class="card-title">Atomic Structure</h3>
+                                <p class="card-text">Learn about atoms, isotopes, and electron configurations.</p>
+                                <a href="/class/10/class/10/science/chemistry/atomic-structure" class="btn btn-chapter mt-3">Study Chapter</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card chapter-card h-100">
+                            <div class="card-body text-center">
+                                <div class="chapter-icon text-success"><i class="fas fa-flask"></i></div>
+                                <h3 class="card-title">Chemical Reactions</h3>
+                                <p class="card-text">Explore different types of reactions and balancing equations.</p>
+                                <a href="/class/10/class/10/science/chemistry/chemical-reactions" class="btn btn-chapter mt-3">Study Chapter</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card chapter-card h-100">
+                            <div class="card-body text-center">
+                                <div class="chapter-icon text-warning"><i class="fas fa-table"></i></div>
+                                <h3 class="card-title">Periodic Table</h3>
+                                <p class="card-text">Understand element classification and periodic trends.</p>
+                                <a href="/class/10/class/10/science/chemistry/periodic-table" class="btn btn-chapter mt-3">Study Chapter</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card chapter-card h-100">
+                            <div class="card-body text-center">
+                                <div class="chapter-icon text-danger"><i class="fas fa-fire"></i></div>
+                                <h3 class="card-title">Acids and Bases</h3>
+                                <p class="card-text">Study pH, neutralization, and common acids and bases.</p>
+                                <a href="/class/10/class/10/science/chemistry/acids-and-bases" class="btn btn-chapter mt-3">Study Chapter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Chemistry Notes</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-book resource-icon text-primary"></i>Textbook & Notes</h3>
+                        <p class="card-text">Access the digital chemistry textbook and comprehensive notes.</p>
+                        <ul class="list-group list-group-flush mt-3">
+                            <li class="list-group-item"><a href="/class/10/class/10/science/chemistry/textbook.pdf" class="text-decoration-none">Chemistry Textbook (PDF)</a></li>
+                            <li class="list-group-item"><a href="/class/10/class/10/science/chemistry/notes.pdf" class="text-decoration-none">Chemistry Notes (PDF)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-flask resource-icon text-success"></i>Virtual Lab</h3>
+                        <p class="card-text">Perform virtual chemistry experiments and simulations.</p>
+                        <a href="class10chemistrylab.html" class="btn btn-success mt-3">Enter Virtual Lab</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-question-circle resource-icon text-warning"></i>Practice Questions</h3>
+                        <p class="card-text">Test your knowledge with chapter-wise practice questions.</p>
+                        <a href="class10chemistryquestions.html" class="btn btn-warning mt-3">Start Practicing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Interactive 3D Molecule
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('moleculeCanvas') });
+    renderer.setSize(300, 300);
+
+    const geometry = new THREE.SphereGeometry(0.5, 32, 32);
+    const material1 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    const material2 = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+
+    const atom1 = new THREE.Mesh(geometry, material1);
+    const atom2 = new THREE.Mesh(geometry, material2);
+
+    atom1.position.set(-1, 0, 0);
+    atom2.position.set(1, 0, 0);
+
+    scene.add(atom1);
+    scene.add(atom2);
+
+    camera.position.z = 5;
+
+    let rotationSpeed = 0.01;
+    let isRotating = false;
+
+    function animate() {
+        requestAnimationFrame(animate);
+        if (isRotating) {
+            atom1.rotation.y += rotationSpeed;
+            atom2.rotation.y += rotationSpeed;
+        }
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    document.getElementById('rotateBtn').addEventListener('click', function() {
+        isRotating = true;
+    });
+
+    document.getElementById('stopBtn').addEventListener('click', function() {
+        isRotating = false;
+    });
+
+    // Resource tracking
+    const resourceLinks = document.querySelectorAll('.card-body a');
+    resourceLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const resourceName = this.textContent;
+            console.log(`User accessed resource: ${resourceName}`);
+            // Here you can add code to track resource usage, e.g., using Google Analytics
+        });
+    });
+
+    // Chapter access tracking
+    const chapterLinks = document.querySelectorAll('.btn-chapter');
+    chapterLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const chapterName = this.closest('.card-body').querySelector('h3').textContent;
+            console.log(`User accessed chapter: ${chapterName}`);
+            // Here you can add code to track chapter access
+        });
+    });
+});
+</script>
+
+
+
+
+
+
+  
+
+
+
+  <div class="container" style="text-align: center; border: 10px solid rgb(171, 166, 166); border-radius: 10px; padding: 10px; margin-top: 20px; margin-bottom: 20px; background-color: #f8f9fa; rounded-corners: 10px;">
+            <h1>Subscribe Educated Nepal Today!</h1>
+            <p>Subscribe now and start your learning journey with ease and efficiency!</p>
+            <div class="youtube">
+                <a href="https://www.youtube.com/channel/UCgHGjXDYoxusp__X5Q0VOhg"><img alt="Youtube" height="110" src="ytlogo.png" width="150"/></a>
+   
+               
+            </div>
+        </div>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+   body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .header {
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .content h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+       
+        .details {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .details p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .footer:hover {
+            background-color: #444;
+        }
+        .footer .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer .footer-content div {
+            margin: 10px;
+            flex: 1;
+            min-width: 200px;
+        }
+        .footer .footer-content h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .footer .footer-content a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+            font-size: 16px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .footer .footer-content a:hover {
+            color: #007bff;
+            transform: scale(1.05);
+        }
+        .footer p {
+            margin: 10px 0;
+        }
+        .footer .contact-info {
+            margin-top: 20px;
+        }
+        .footer .logo {
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .footer .logo img {
+            height: 60px;
+            width: 60px;
+        }
+        .footer .logo:hover {
+            transform: scale(1.1);
+        }
+  </style>
+ </head>
+ <body>
+  
+   
+  <div class="footer">
+   <div class="logo">
+    <img alt="Educated Nepal Logo" height="60" src="logo.png" width="60"/>
+   </div>
+   <p>
+    Educated Nepal is all about Providing Notes, Assignments, Solutions, Formulas and Questions to Class 11 and 12 students, for SCIENCE Streams.
+   </p>
+   <div class="footer-content">
+    <div>
+     <h3>
+      Shortcut
+     </h3>
+     <a href="class10resources.html">
+      NEB Class 10
+     </a>
+     <a href="class11resources.html">
+      NEB Class 11
+     </a>
+     <a href="class12resources.html">
+      NEB Class 12
+     </a>
+     <a href="#">
+      Bachelor's
+     </a>
+    </div>
+    <div>
+     <h3>
+      Useful Links
+     </h3>
+     <a href="about-us.html">
+      About Us
+     </a>
+     <a href="contact-us.html">
+      Contact Us
+     </a>
+     <a href="privacy-policy.html">
+      Privacy Policy
+     </a>
+     <a href="terms-and-conditions.html">
+      Terms and Conditions
+     </a>
+     <a href="#">
+      Sitemap
+     </a>
+    </div>
+    <div>
+     <h3>
+      Contact
+     </h3><br>
+   <i class="fas fa-map-marker-alt"></i> Kirtipur - 1 Kathmandu Nepal<br>
+     <a href="mailto:educatednepal636@gmail.com">educatednepal636@gmail.com</a><br>
+    <i class="fas fa-phone"><a href="tel:9768443054">9768443054</a></i><br>
+    </div>
+   </div>
+   <p>
+    &copy; 2024 Educated Nepal. All rights reserved.
+   </p>
+  </div>
+ </body>
+</html>
